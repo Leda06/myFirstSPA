@@ -1,0 +1,17 @@
+<h1>{{model.feature.name}}</h1>
+  {{#link-to "newtest" model.feature.id tagName="button"}} Create a new test {{/link-to}}
+  <ul>
+    {{#each model.tests as |test|}}
+      <li>
+        {{test.name}} <select onchange={{action (action 'updateValue' test) value="target.value"}} >
+          <option selected={{eq "undefined" test.state}} value="undefined">undefined</option>
+          <option selected={{eq "passed" test.state}} value="passed">passed</option>
+          <option  selected={{eq "failed" test.state}} value="failed">failed</option>
+        </select>
+      </li>
+    {{/each}}
+  </ul>
+{{#link-to "features" tagName="button"}}Back to the list of features{{/link-to}}
+{{outlet}}
+
+{{!-- onchange={{action "updateValue" value="target.value"}} --}}

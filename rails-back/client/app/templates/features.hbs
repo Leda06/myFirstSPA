@@ -1,0 +1,12 @@
+<h1>Features</h1>
+  {{#link-to "newfeature" tagName="button"}} Create a new feature {{/link-to}}
+  <ul>
+    {{#each model as |feature|}}
+      <li>
+        {{#link-to "feature" feature.id}}
+          {{feature.name}}
+        {{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
+  {{outlet}}

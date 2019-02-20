@@ -1,0 +1,27 @@
+audited 64200 packages in 6.118s
+found 1 low severity vulnerability
+  run `npm audit fix` to fix them, or `npm audit` for details
+audited 64200 packages in 6.412s
+found 1 low severity vulnerability
+  run `npm audit fix` to fix them, or `npm audit` for details
+ember-cli: 3.7.1
+node: 10.15.1
+os: linux x64
+audited 64200 packages in 5.982s
+found 1 low severity vulnerability
+  run `npm audit fix` to fix them, or `npm audit` for details
+audited 64200 packages in 6.283s
+found 1 low severity vulnerability
+  run `npm audit fix` to fix them, or `npm audit` for details
+ember-cli: 3.7.1
+node: 10.15.1
+os: linux x64
+audited 64200 packages in 6.911s
+found 1 low severity vulnerability
+  run `npm audit fix` to fix them, or `npm audit` for details
+audited 64200 packages in 7.152s
+found 1 low severity vulnerability
+  run `npm audit fix` to fix them, or `npm audit` for details
+ember-cli: 3.7.1
+node: 10.15.1
+os: linux x64

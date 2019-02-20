@@ -1,0 +1,7 @@
+{
+  "name": "rails-back",
+  "private": true,
+  "dependencies": {
+    "watchman": "^1.0.0"
+  }
+}
