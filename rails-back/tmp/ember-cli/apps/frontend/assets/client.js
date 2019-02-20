@@ -735,23 +735,6 @@
 
   _exports.default = _default;
 });
-;define("client/serializers/application", ["exports", "ember-data"], function (_exports, _emberData) {
-  "use strict";
-
-  Object.defineProperty(_exports, "__esModule", {
-    value: true
-  });
-  _exports.default = void 0;
-
-  var _default = _emberData.default.JSONAPISerializer.extend({
-    keyForAttribute(attr) {
-      return Ember.String.underscore(attr);
-    }
-
-  });
-
-  _exports.default = _default;
-});
 ;define("client/services/ajax", ["exports", "ember-ajax/services/ajax"], function (_exports, _ajax) {
   "use strict";
 

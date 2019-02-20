@@ -52,10 +52,6 @@ define("client/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'routes/newtest.js should pass ESLint\n\n');
   });
-  QUnit.test('serializers/application.js', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'serializers/application.js should pass ESLint\n\n');
-  });
 });
 define("client/tests/lint/templates.template.lint-test", [], function () {
   "use strict";

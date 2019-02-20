@@ -4,6 +4,5 @@ Rails.application.routes.draw do
       resources :features, :tests
     end
   end
-  get '/features/:id', to: 'api/v1/features#show'
   mount_ember_app :frontend, to: "/"
 end
