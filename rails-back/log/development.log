@@ -20805,3 +20805,301 @@ Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.8ms)
 Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/features" for 127.0.0.1 at 2019-02-20 22:45:27 +0100
+Processing by EmberCli::EmberController#index as HTML
+  Parameters: {"ember_app"=>:frontend, "rest"=>"features"}
+  Rendering /home/david/.rvm/gems/ruby-2.6.0/gems/ember-cli-rails-0.10.0/app/views/ember_cli/ember/index.html.erb
+  Rendering html template
+  Rendered html template (0.0ms)
+  Rendered /home/david/.rvm/gems/ruby-2.6.0/gems/ember-cli-rails-0.10.0/app/views/ember_cli/ember/index.html.erb (0.9ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:45:27 +0100
+Processing by Api::V1::FeaturesController#index as JSON
+  [1m[36mFeature Load (0.4ms)[0m  [1m[34mSELECT "features".* FROM "features"[0m
+  ↳ app/controllers/api/v1/features_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (1.01ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/features" for 127.0.0.1 at 2019-02-20 22:45:35 +0100
+Processing by EmberCli::EmberController#index as HTML
+  Parameters: {"ember_app"=>:frontend, "rest"=>"features"}
+  Rendering /home/david/.rvm/gems/ruby-2.6.0/gems/ember-cli-rails-0.10.0/app/views/ember_cli/ember/index.html.erb
+  Rendering html template
+  Rendered html template (0.0ms)
+  Rendered /home/david/.rvm/gems/ruby-2.6.0/gems/ember-cli-rails-0.10.0/app/views/ember_cli/ember/index.html.erb (1.2ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:45:35 +0100
+Processing by Api::V1::FeaturesController#index as JSON
+  [1m[36mFeature Load (0.4ms)[0m  [1m[34mSELECT "features".* FROM "features"[0m
+  ↳ app/controllers/api/v1/features_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.14ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:45:49 +0100
+Processing by Api::V1::FeaturesController#create as JSON
+  Parameters: {"data"=>{"attributes"=>{"name"=>"Feature 1"}, "type"=>"features"}, "feature"=>{}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/features_controller.rb:13
+  [1m[36mFeature Create (0.4ms)[0m  [1m[32mINSERT INTO "features" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Feature 1"]]
+  ↳ app/controllers/api/v1/features_controller.rb:13
+  [1m[35m (59.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/features_controller.rb:13
+[active_model_serializers] Rendered FeatureSerializer with ActiveModelSerializers::Adapter::JsonApi (0.36ms)
+Completed 200 OK in 62ms (Views: 0.7ms | ActiveRecord: 60.2ms)
+
+
+Started GET "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:45:49 +0100
+Processing by Api::V1::FeaturesController#index as JSON
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT "features".* FROM "features"[0m
+  ↳ app/controllers/api/v1/features_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.41ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/tests?filter%5Bfeature%5D=11" for 127.0.0.1 at 2019-02-20 22:45:52 +0100
+Processing by Api::V1::TestsController#index as JSON
+  Parameters: {"filter"=>{"feature"=>"11"}}
+  [1m[36mTest Load (0.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."feature" = $1 ORDER BY id ASC[0m  [["feature", 11]]
+  ↳ app/controllers/api/v1/tests_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.08ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/features/11" for 127.0.0.1 at 2019-02-20 22:45:52 +0100
+Processing by Api::V1::FeaturesController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT  "features".* FROM "features" WHERE "features"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/features_controller.rb:8
+[active_model_serializers] Rendered FeatureSerializer with ActiveModelSerializers::Adapter::JsonApi (0.57ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/features/11" for 127.0.0.1 at 2019-02-20 22:45:53 +0100
+Processing by Api::V1::FeaturesController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT  "features".* FROM "features" WHERE "features"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/features_controller.rb:8
+[active_model_serializers] Rendered FeatureSerializer with ActiveModelSerializers::Adapter::JsonApi (0.51ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/tests" for 127.0.0.1 at 2019-02-20 22:45:59 +0100
+Processing by Api::V1::TestsController#create as JSON
+  Parameters: {"data"=>{"attributes"=>{"name"=>"Test 1", "state"=>"passed", "feature"=>"11"}, "type"=>"tests"}, "test"=>{}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/tests_controller.rb:7
+  [1m[36mTest Create (0.5ms)[0m  [1m[32mINSERT INTO "tests" ("name", "state", "feature") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test 1"], ["state", "passed"], ["feature", 11]]
+  ↳ app/controllers/api/v1/tests_controller.rb:7
+  [1m[35m (58.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/tests_controller.rb:7
+[active_model_serializers] Rendered TestSerializer with ActiveModelSerializers::Adapter::JsonApi (0.36ms)
+Completed 200 OK in 62ms (Views: 0.8ms | ActiveRecord: 58.9ms)
+
+
+Started GET "/api/v1/tests?filter%5Bfeature%5D=11" for 127.0.0.1 at 2019-02-20 22:45:59 +0100
+Processing by Api::V1::TestsController#index as JSON
+  Parameters: {"filter"=>{"feature"=>"11"}}
+  [1m[36mTest Load (0.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."feature" = $1 ORDER BY id ASC[0m  [["feature", 11]]
+  ↳ app/controllers/api/v1/tests_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.61ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/features/11" for 127.0.0.1 at 2019-02-20 22:45:59 +0100
+Processing by Api::V1::FeaturesController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT  "features".* FROM "features" WHERE "features"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/features_controller.rb:8
+[active_model_serializers] Rendered FeatureSerializer with ActiveModelSerializers::Adapter::JsonApi (0.66ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:46:00 +0100
+Processing by Api::V1::FeaturesController#index as JSON
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT "features".* FROM "features"[0m
+  ↳ app/controllers/api/v1/features_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.65ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:46:05 +0100
+Processing by Api::V1::FeaturesController#create as JSON
+  Parameters: {"data"=>{"attributes"=>{"name"=>"Feature 2"}, "type"=>"features"}, "feature"=>{}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/features_controller.rb:13
+  [1m[36mFeature Create (0.3ms)[0m  [1m[32mINSERT INTO "features" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Feature 2"]]
+  ↳ app/controllers/api/v1/features_controller.rb:13
+  [1m[35m (19.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/features_controller.rb:13
+[active_model_serializers] Rendered FeatureSerializer with ActiveModelSerializers::Adapter::JsonApi (0.38ms)
+Completed 200 OK in 23ms (Views: 0.8ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:46:05 +0100
+Processing by Api::V1::FeaturesController#index as JSON
+  [1m[36mFeature Load (0.2ms)[0m  [1m[34mSELECT "features".* FROM "features"[0m
+  ↳ app/controllers/api/v1/features_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.97ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/tests?filter%5Bfeature%5D=12" for 127.0.0.1 at 2019-02-20 22:46:06 +0100
+Processing by Api::V1::TestsController#index as JSON
+  Parameters: {"filter"=>{"feature"=>"12"}}
+  [1m[36mTest Load (0.4ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."feature" = $1 ORDER BY id ASC[0m  [["feature", 12]]
+  ↳ app/controllers/api/v1/tests_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.08ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/features/12" for 127.0.0.1 at 2019-02-20 22:46:06 +0100
+Processing by Api::V1::FeaturesController#show as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT  "features".* FROM "features" WHERE "features"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/features_controller.rb:8
+[active_model_serializers] Rendered FeatureSerializer with ActiveModelSerializers::Adapter::JsonApi (0.38ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:46:07 +0100
+Processing by Api::V1::FeaturesController#index as JSON
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT "features".* FROM "features"[0m
+  ↳ app/controllers/api/v1/features_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.73ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/tests?filter%5Bfeature%5D=11" for 127.0.0.1 at 2019-02-20 22:46:08 +0100
+Processing by Api::V1::TestsController#index as JSON
+  Parameters: {"filter"=>{"feature"=>"11"}}
+  [1m[36mTest Load (0.3ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."feature" = $1 ORDER BY id ASC[0m  [["feature", 11]]
+  ↳ app/controllers/api/v1/tests_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.49ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/features/11" for 127.0.0.1 at 2019-02-20 22:46:08 +0100
+Processing by Api::V1::FeaturesController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT  "features".* FROM "features" WHERE "features"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/features_controller.rb:8
+[active_model_serializers] Rendered FeatureSerializer with ActiveModelSerializers::Adapter::JsonApi (0.48ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/tests/21" for 127.0.0.1 at 2019-02-20 22:46:11 +0100
+Processing by Api::V1::TestsController#show as JSON
+  Parameters: {"id"=>"21"}
+  [1m[36mTest Load (0.3ms)[0m  [1m[34mSELECT  "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tests_controller.rb:11
+[active_model_serializers] Rendered TestSerializer with ActiveModelSerializers::Adapter::JsonApi (0.61ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/api/v1/tests/21" for 127.0.0.1 at 2019-02-20 22:46:11 +0100
+Processing by Api::V1::TestsController#update as JSON
+  Parameters: {"data"=>{"id"=>"21", "attributes"=>{"name"=>"Test 1", "state"=>"undefined", "feature"=>11}, "type"=>"tests"}, "id"=>"21", "test"=>{}}
+  [1m[36mTest Load (0.3ms)[0m  [1m[34mSELECT  "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/tests_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/tests_controller.rb:16
+  [1m[36mTest Update (0.3ms)[0m  [1m[33mUPDATE "tests" SET "state" = $1 WHERE "tests"."id" = $2[0m  [["state", "undefined"], ["id", 21]]
+  ↳ app/controllers/api/v1/tests_controller.rb:16
+  [1m[35m (21.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/tests_controller.rb:16
+[active_model_serializers] Rendered TestSerializer with ActiveModelSerializers::Adapter::JsonApi (0.44ms)
+Completed 200 OK in 25ms (Views: 0.9ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:46:14 +0100
+Processing by Api::V1::FeaturesController#index as JSON
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT "features".* FROM "features"[0m
+  ↳ app/controllers/api/v1/features_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.65ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/tests?filter%5Bfeature%5D=11" for 127.0.0.1 at 2019-02-20 22:46:15 +0100
+Started GET "/api/v1/features/11" for 127.0.0.1 at 2019-02-20 22:46:15 +0100
+Processing by Api::V1::TestsController#index as JSON
+Processing by Api::V1::FeaturesController#show as JSON
+  Parameters: {"filter"=>{"feature"=>"11"}}
+  Parameters: {"id"=>"11"}
+  [1m[36mTest Load (0.3ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."feature" = $1 ORDER BY id ASC[0m  [["feature", 11]]
+  ↳ app/controllers/api/v1/tests_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.59ms)
+  [1m[36mFeature Load (1.3ms)[0m  [1m[34mSELECT  "features".* FROM "features" WHERE "features"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+  ↳ app/controllers/api/v1/features_controller.rb:8
+[active_model_serializers] Rendered FeatureSerializer with ActiveModelSerializers::Adapter::JsonApi (0.31ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:46:46 +0100
+Processing by Api::V1::FeaturesController#index as JSON
+  [1m[36mFeature Load (0.2ms)[0m  [1m[34mSELECT "features".* FROM "features"[0m
+  ↳ app/controllers/api/v1/features_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.55ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/tests?filter%5Bfeature%5D=11" for 127.0.0.1 at 2019-02-20 22:46:48 +0100
+Processing by Api::V1::TestsController#index as JSON
+  Parameters: {"filter"=>{"feature"=>"11"}}
+  [1m[36mTest Load (0.3ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."feature" = $1 ORDER BY id ASC[0m  [["feature", 11]]
+  ↳ app/controllers/api/v1/tests_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.39ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/features/11" for 127.0.0.1 at 2019-02-20 22:46:48 +0100
+Processing by Api::V1::FeaturesController#show as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT  "features".* FROM "features" WHERE "features"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/features_controller.rb:8
+[active_model_serializers] Rendered FeatureSerializer with ActiveModelSerializers::Adapter::JsonApi (0.34ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:46:49 +0100
+Processing by Api::V1::FeaturesController#index as JSON
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT "features".* FROM "features"[0m
+  ↳ app/controllers/api/v1/features_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.69ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/tests?filter%5Bfeature%5D=12" for 127.0.0.1 at 2019-02-20 22:46:51 +0100
+Processing by Api::V1::TestsController#index as JSON
+  Parameters: {"filter"=>{"feature"=>"12"}}
+  [1m[36mTest Load (0.3ms)[0m  [1m[34mSELECT "tests".* FROM "tests" WHERE "tests"."feature" = $1 ORDER BY id ASC[0m  [["feature", 12]]
+  ↳ app/controllers/api/v1/tests_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.08ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/features/12" for 127.0.0.1 at 2019-02-20 22:46:51 +0100
+Processing by Api::V1::FeaturesController#show as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mFeature Load (0.3ms)[0m  [1m[34mSELECT  "features".* FROM "features" WHERE "features"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/features_controller.rb:8
+[active_model_serializers] Rendered FeatureSerializer with ActiveModelSerializers::Adapter::JsonApi (0.69ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/features" for 127.0.0.1 at 2019-02-20 22:46:52 +0100
+Processing by Api::V1::FeaturesController#index as JSON
+  [1m[36mFeature Load (0.2ms)[0m  [1m[34mSELECT "features".* FROM "features"[0m
+  ↳ app/controllers/api/v1/features_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::JsonApi (0.57ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+
+
