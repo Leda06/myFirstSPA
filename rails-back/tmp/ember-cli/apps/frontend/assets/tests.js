@@ -69,10 +69,6 @@ define("client/tests/lint/templates.template.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'client/templates/features.hbs should pass TemplateLint.\n\n');
   });
-  QUnit.test('client/templates/features/new.hbs', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'client/templates/features/new.hbs should pass TemplateLint.\n\n');
-  });
   QUnit.test('client/templates/newfeature.hbs', function (assert) {
     assert.expect(1);
     assert.ok(true, 'client/templates/newfeature.hbs should pass TemplateLint.\n\n');

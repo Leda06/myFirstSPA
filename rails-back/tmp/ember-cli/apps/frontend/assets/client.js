@@ -688,11 +688,15 @@
   var _default = Ember.Route.extend({
     model(params) {
       return Ember.RSVP.hash({
-        feature: this.store.findRecord('feature', params.feature_id),
+        feature: this.store.findRecord('feature', params.feature_id).then(function (feature) {
+          return feature;
+        }),
         tests: this.store.query('test', {
           filter: {
             feature: params.feature_id
           }
+        }).then(function (tests) {
+          return tests;
         })
       });
     }
@@ -797,24 +801,6 @@
     "block": "{\"symbols\":[\"feature\"],\"statements\":[[7,\"h1\"],[9],[0,\"Features\"],[10],[0,\"\\n  \"],[4,\"link-to\",[\"newfeature\"],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\" Create a new feature \"]],\"parameters\":[]},null],[0,\"\\n  \"],[7,\"ul\"],[9],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"      \"],[7,\"li\"],[9],[0,\"\\n\"],[4,\"link-to\",[\"feature\",[22,1,[\"id\"]]],null,{\"statements\":[[0,\"          \"],[1,[22,1,[\"name\"]],false],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"      \"],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"  \"],[10],[0,\"\\n  \"],[1,[21,\"outlet\"],false],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "client/templates/features.hbs"
-    }
-  });
-
-  _exports.default = _default;
-});
-;define("client/templates/features/new", ["exports"], function (_exports) {
-  "use strict";
-
-  Object.defineProperty(_exports, "__esModule", {
-    value: true
-  });
-  _exports.default = void 0;
-
-  var _default = Ember.HTMLBars.template({
-    "id": "Hpl0/1X7",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"h1\"],[9],[0,\"New Feature\"],[10],[0,\"\\n\"],[7,\"button\"],[9],[0,\"Create\"],[3,\"action\",[[22,0,[]],\"create\"]],[10],[0,\"\\n\"],[7,\"button\"],[9],[0,\"Cancel\"],[3,\"action\",[[22,0,[]],\"cancel\"]],[10],[0,\"\\n\"]],\"hasEval\":false}",
-    "meta": {
-      "moduleName": "client/templates/features/new.hbs"
     }
   });
 
