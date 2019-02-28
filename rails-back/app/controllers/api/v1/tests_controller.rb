@@ -1,7 +1,7 @@
 class Api::V1::TestsController < ApplicationController
   def index
     if (params.has_key?(:filter) && params[:filter].has_key?(:feature))
-      @tests = Test.where(feature: params[:filter][:feature]).order("id ASC")
+      @tests = Test.where(featureid: params[:filter][:feature]).order("id ASC")
     else
       @tests = Test.all.order("id ASC")
     end
@@ -9,7 +9,7 @@ class Api::V1::TestsController < ApplicationController
 
   end
   def create
-    @test = Test.create(name: params[:data][:attributes][:name], state: params[:data][:attributes][:state], feature: params[:data][:attributes][:feature])
+    @test = Test.create(name: params[:data][:attributes][:name], state: params[:data][:attributes][:state], featureid: params[:data][:attributes][:feature])
     render :json => @test
   end
   def show
@@ -20,5 +20,8 @@ class Api::V1::TestsController < ApplicationController
     @test = Test.find(params[:id])
     @test.update(state: params[:data][:attributes][:state])
     render :json => @test
+  end
+  def destroy
+    @test = Test.destroy(params[:id])
   end
 end

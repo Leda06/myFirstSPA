@@ -6,4 +6,5 @@ export default DS.Model.extend({
     defaultValue() { return 'undefined'; }
   }),
   feature: DS.attr(),
+  featureObj: DS.belongsTo('feature')
 });

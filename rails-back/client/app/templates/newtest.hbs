@@ -1,6 +1,9 @@
 <h1>New test</h1>
-<div>Name: {{input value=name}}</div>
-<div>State:
+<div>
+  Name: {{input value=name}}
+</div>
+<div>
+  State:
   <select onchange={{action "updateValue" value="target.value"}}>
     <option value="undefined">undefined</option>
     <option value="passed">passed</option>

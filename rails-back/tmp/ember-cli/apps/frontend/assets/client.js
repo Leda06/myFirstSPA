@@ -60,6 +60,37 @@
           test.set('state', target);
           test.save();
         });
+      },
+      destroy: function (test) {
+        this.store.findRecord('test', test.id, {
+          reload: true
+        }).then(function (test) {
+          test.deleteRecord();
+          test.save();
+        });
+      }
+    }
+  });
+
+  _exports.default = _default;
+});
+;define("client/controllers/features", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.Controller.extend({
+    actions: {
+      destroy: function (feature) {
+        this.store.findRecord('feature', feature.id, {
+          reload: true
+        }).then(function (feature) {
+          feature.deleteRecord();
+          feature.save();
+        });
       }
     }
   });
@@ -617,7 +648,8 @@
   _exports.default = void 0;
 
   var _default = _emberData.default.Model.extend({
-    name: _emberData.default.attr()
+    name: _emberData.default.attr(),
+    tests: _emberData.default.hasMany('test')
   });
 
   _exports.default = _default;
@@ -638,7 +670,8 @@
       }
 
     }),
-    feature: _emberData.default.attr()
+    feature: _emberData.default.attr(),
+    featureObj: _emberData.default.belongsTo('feature')
   });
 
   _exports.default = _default;
@@ -779,8 +812,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "1Y2w1ssw",
-    "block": "{\"symbols\":[\"test\"],\"statements\":[[7,\"h1\"],[9],[1,[23,[\"model\",\"feature\",\"name\"]],false],[10],[0,\"\\n  \"],[4,\"link-to\",[\"newtest\",[23,[\"model\",\"feature\",\"id\"]]],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\" Create a new test \"]],\"parameters\":[]},null],[0,\"\\n  \"],[7,\"ul\"],[9],[0,\"\\n\"],[4,\"each\",[[23,[\"model\",\"tests\"]]],null,{\"statements\":[[0,\"      \"],[7,\"li\"],[9],[0,\"\\n        \"],[1,[22,1,[\"name\"]],false],[0,\" \"],[7,\"select\"],[12,\"onchange\",[27,\"action\",[[22,0,[]],[27,\"action\",[[22,0,[]],\"updateValue\",[22,1,[]]],null]],[[\"value\"],[\"target.value\"]]]],[9],[0,\"\\n          \"],[7,\"option\"],[12,\"selected\",[27,\"eq\",[\"undefined\",[22,1,[\"state\"]]],null]],[11,\"value\",\"undefined\"],[9],[0,\"undefined\"],[10],[0,\"\\n          \"],[7,\"option\"],[12,\"selected\",[27,\"eq\",[\"passed\",[22,1,[\"state\"]]],null]],[11,\"value\",\"passed\"],[9],[0,\"passed\"],[10],[0,\"\\n          \"],[7,\"option\"],[12,\"selected\",[27,\"eq\",[\"failed\",[22,1,[\"state\"]]],null]],[11,\"value\",\"failed\"],[9],[0,\"failed\"],[10],[0,\"\\n        \"],[10],[0,\"\\n      \"],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"  \"],[10],[0,\"\\n\"],[4,\"link-to\",[\"features\"],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\"Back to the list of features\"]],\"parameters\":[]},null],[0,\"\\n\"],[1,[21,\"outlet\"],false],[0,\"\\n\\n\"]],\"hasEval\":false}",
+    "id": "6e6HPMsg",
+    "block": "{\"symbols\":[\"test\"],\"statements\":[[7,\"h1\"],[9],[1,[23,[\"model\",\"feature\",\"name\"]],false],[10],[0,\"\\n  \"],[4,\"link-to\",[\"newtest\",[23,[\"model\",\"feature\",\"id\"]]],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\" Create a new test \"]],\"parameters\":[]},null],[0,\"\\n  \"],[7,\"ul\"],[9],[0,\"\\n\"],[4,\"each\",[[23,[\"model\",\"tests\"]]],null,{\"statements\":[[0,\"      \"],[7,\"li\"],[9],[0,\"\\n        \"],[1,[22,1,[\"name\"]],false],[0,\" \\n        \"],[7,\"select\"],[12,\"onchange\",[27,\"action\",[[22,0,[]],[27,\"action\",[[22,0,[]],\"updateValue\",[22,1,[]]],null]],[[\"value\"],[\"target.value\"]]]],[9],[0,\"\\n          \"],[7,\"option\"],[12,\"selected\",[27,\"eq\",[\"undefined\",[22,1,[\"state\"]]],null]],[11,\"value\",\"undefined\"],[9],[0,\"undefined\"],[10],[0,\"\\n          \"],[7,\"option\"],[12,\"selected\",[27,\"eq\",[\"passed\",[22,1,[\"state\"]]],null]],[11,\"value\",\"passed\"],[9],[0,\"passed\"],[10],[0,\"\\n          \"],[7,\"option\"],[12,\"selected\",[27,\"eq\",[\"failed\",[22,1,[\"state\"]]],null]],[11,\"value\",\"failed\"],[9],[0,\"failed\"],[10],[0,\"\\n        \"],[10],[0,\"\\n        \"],[7,\"button\"],[9],[0,\"Delete this test\"],[3,\"action\",[[22,0,[]],\"destroy\",[22,1,[]]]],[10],[0,\"\\n      \"],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"  \"],[10],[0,\"\\n\"],[4,\"link-to\",[\"features\"],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\"Back to the list of features\"]],\"parameters\":[]},null],[0,\"\\n\"],[1,[21,\"outlet\"],false],[0,\"\\n\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "client/templates/feature.hbs"
     }
@@ -797,8 +830,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "qTFQEoya",
-    "block": "{\"symbols\":[\"feature\"],\"statements\":[[7,\"h1\"],[9],[0,\"Features\"],[10],[0,\"\\n  \"],[4,\"link-to\",[\"newfeature\"],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\" Create a new feature \"]],\"parameters\":[]},null],[0,\"\\n  \"],[7,\"ul\"],[9],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"      \"],[7,\"li\"],[9],[0,\"\\n\"],[4,\"link-to\",[\"feature\",[22,1,[\"id\"]]],null,{\"statements\":[[0,\"          \"],[1,[22,1,[\"name\"]],false],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"      \"],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"  \"],[10],[0,\"\\n  \"],[1,[21,\"outlet\"],false],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "0P6OcSGB",
+    "block": "{\"symbols\":[\"feature\"],\"statements\":[[7,\"h1\"],[9],[0,\"Features\"],[10],[0,\"\\n  \"],[4,\"link-to\",[\"newfeature\"],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\" Create a new feature \"]],\"parameters\":[]},null],[0,\"\\n  \"],[7,\"ul\"],[9],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"      \"],[7,\"li\"],[9],[0,\"\\n\"],[4,\"link-to\",[\"feature\",[22,1,[\"id\"]]],null,{\"statements\":[[0,\"          \"],[1,[22,1,[\"name\"]],false],[0,\"\\n        \"]],\"parameters\":[]},null],[0,\" \"],[7,\"button\"],[9],[0,\"Delete\"],[3,\"action\",[[22,0,[]],\"destroy\",[22,1,[]]]],[10],[0,\"\\n      \"],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"  \"],[10],[0,\"\\n  \"],[1,[21,\"outlet\"],false],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "client/templates/features.hbs"
     }
@@ -833,8 +866,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "CZVzEese",
-    "block": "{\"symbols\":[],\"statements\":[[7,\"h1\"],[9],[0,\"New test\"],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"Name: \"],[1,[27,\"input\",null,[[\"value\"],[[23,[\"name\"]]]]],false],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"State:\\n  \"],[7,\"select\"],[12,\"onchange\",[27,\"action\",[[22,0,[]],\"updateValue\"],[[\"value\"],[\"target.value\"]]]],[9],[0,\"\\n    \"],[7,\"option\"],[11,\"value\",\"undefined\"],[9],[0,\"undefined\"],[10],[0,\"\\n    \"],[7,\"option\"],[11,\"value\",\"passed\"],[9],[0,\"passed\"],[10],[0,\"\\n    \"],[7,\"option\"],[11,\"value\",\"failed\"],[9],[0,\"failed\"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"br\"],[9],[10],[0,\"\\n\"],[7,\"button\"],[9],[0,\"Create\"],[3,\"action\",[[22,0,[]],\"create\",[23,[\"model\"]]]],[10],[0,\"\\n\"],[7,\"button\"],[9],[0,\"Cancel\"],[3,\"action\",[[22,0,[]],\"cancel\",[23,[\"model\"]]]],[10],[0,\"\\n\"],[1,[21,\"outlet\"],false],[0,\"\\n\"]],\"hasEval\":false}",
+    "id": "J3BxdXx8",
+    "block": "{\"symbols\":[],\"statements\":[[7,\"h1\"],[9],[0,\"New test\"],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"\\n  Name: \"],[1,[27,\"input\",null,[[\"value\"],[[23,[\"name\"]]]]],false],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"div\"],[9],[0,\"\\n  State:\\n  \"],[7,\"select\"],[12,\"onchange\",[27,\"action\",[[22,0,[]],\"updateValue\"],[[\"value\"],[\"target.value\"]]]],[9],[0,\"\\n    \"],[7,\"option\"],[11,\"value\",\"undefined\"],[9],[0,\"undefined\"],[10],[0,\"\\n    \"],[7,\"option\"],[11,\"value\",\"passed\"],[9],[0,\"passed\"],[10],[0,\"\\n    \"],[7,\"option\"],[11,\"value\",\"failed\"],[9],[0,\"failed\"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10],[0,\"\\n\"],[7,\"br\"],[9],[10],[0,\"\\n\"],[7,\"button\"],[9],[0,\"Create\"],[3,\"action\",[[22,0,[]],\"create\",[23,[\"model\"]]]],[10],[0,\"\\n\"],[7,\"button\"],[9],[0,\"Cancel\"],[3,\"action\",[[22,0,[]],\"cancel\",[23,[\"model\"]]]],[10],[0,\"\\n\"],[1,[21,\"outlet\"],false],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
       "moduleName": "client/templates/newtest.hbs"
     }

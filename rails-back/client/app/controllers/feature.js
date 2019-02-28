@@ -7,6 +7,12 @@ export default Controller.extend({
         test.set('state',target);
         test.save();
       });
+    },
+    destroy: function(test) {
+      this.store.findRecord('test', test.id,{ reload: true }).then(function(test) {
+        test.deleteRecord();
+        test.save();
+      });
     }
   }
 });

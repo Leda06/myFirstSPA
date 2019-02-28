@@ -16,6 +16,10 @@ define("client/tests/lint/app.lint-test", [], function () {
     assert.expect(1);
     assert.ok(true, 'controllers/feature.js should pass ESLint\n\n');
   });
+  QUnit.test('controllers/features.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'controllers/features.js should pass ESLint\n\n');
+  });
   QUnit.test('controllers/newfeature.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'controllers/newfeature.js should pass ESLint\n\n');
@@ -63,7 +67,7 @@ define("client/tests/lint/templates.template.lint-test", [], function () {
   });
   QUnit.test('client/templates/feature.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'client/templates/feature.hbs should pass TemplateLint.\n\nclient/templates/feature.hbs\n  10:17  error  Incorrect indentation for `select` beginning at L6:C22. Expected `</select>` ending at L10:C17 to be at an indentation of 22 but was found at 8.  block-indentation\n  7:10  error  Incorrect indentation for `<option>` beginning at L7:C10. Expected `<option>` to be at an indentation of 24 but was found at 10.  block-indentation\n  8:10  error  Incorrect indentation for `<option>` beginning at L8:C10. Expected `<option>` to be at an indentation of 24 but was found at 10.  block-indentation\n  9:10  error  Incorrect indentation for `<option>` beginning at L9:C10. Expected `<option>` to be at an indentation of 24 but was found at 10.  block-indentation\n  6:56  error  you must use double quotes in templates  quotes\n');
+    assert.ok(true, 'client/templates/feature.hbs should pass TemplateLint.\n\n');
   });
   QUnit.test('client/templates/features.hbs', function (assert) {
     assert.expect(1);
@@ -75,7 +79,7 @@ define("client/tests/lint/templates.template.lint-test", [], function () {
   });
   QUnit.test('client/templates/newtest.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'client/templates/newtest.hbs should pass TemplateLint.\n\nclient/templates/newtest.hbs\n  3:5  error  Incorrect indentation for `State:\n  ` beginning at L3:C5. Expected `State:\n  ` to be at an indentation of 2 but was found at 5.  block-indentation\n');
+    assert.ok(true, 'client/templates/newtest.hbs should pass TemplateLint.\n\n');
   });
 });
 define("client/tests/lint/tests.lint-test", [], function () {

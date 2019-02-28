@@ -5,7 +5,7 @@
       <li>
         {{#link-to "feature" feature.id}}
           {{feature.name}}
-        {{/link-to}}
+        {{/link-to}} <button {{action "destroy" feature}}>Delete</button>
       </li>
     {{/each}}
   </ul>
